@@ -1,0 +1,48 @@
+DAY 1 DATA QUALITY SUMMARY
+
+1. Ten CSV datasets were successfully loaded.
+
+2. No duplicate rows were found in any of the 10 datasets.
+
+3. Nine datasets contain no missing values.
+
+4. The file 04_monthly_sip_inflows.csv contains 12 missing
+   values in the yoy_growth_pct column.
+
+5. AMFI scheme-code validation identified a mismatch:
+   project fund_master.csv maps scheme code 125497 to
+   HDFC Top 100 Fund - Direct Plan - Growth.
+
+6. However, the live MFAPI endpoint for scheme code 125497
+   currently returns SBI Small Cap Fund - Direct Plan - Growth.
+
+7. The API mismatch was not ignored. The incorrect NAV response
+   was not saved as HDFC Top 100 data.
+
+8. HDFC Top 100 Direct Growth is currently referenced with
+   AMFI scheme code 119533. This should be verified against
+   the project's assignment requirements before replacing 125497.
+
+9. Validation of the 5 key scheme codes showed that 4 of the
+   5 assignment-provided codes currently return different funds
+   from the expected fund names through MFAPI.
+
+10. SBI Bluechip code 119551 currently returns Aditya Birla Sun
+    Life Banking & PSU Debt Fund - Direct Plan - IDCW.
+
+11. ICICI Bluechip code 120503 currently returns Axis ELSS Tax
+    Saver Fund - Direct Plan - Growth Option.
+
+12. Nippon Large Cap code 118632 correctly returns Nippon India
+    Large Cap Fund - Direct Plan - Growth Option.
+
+13. Axis Bluechip code 119092 currently returns HDFC Money Market
+    Fund - Direct Plan - Growth Option.
+
+14. Kotak Bluechip code 120841 currently returns Quant Mid Cap
+    Fund - Direct Plan - Growth Option.
+
+15. The mismatched API responses will not be saved under the
+    expected fund names. The assignment-provided codes will be
+    retained for documentation, and current scheme codes will
+    be verified separately before downloading NAV data.
